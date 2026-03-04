@@ -5,7 +5,7 @@ const resources = [
     {
         title: "TABELA DE GUINDASTES",
         description: "Tabela técnica completa abrangendo todos os tipos de guindastes, de 25 tn até 500 tn.",
-        image: "https://picsum.photos/seed/rao-crane-table/600/400"
+        image: "caminhao.png"
     },
     {
         title: "TABELAS TÉCNICAS E CATÁLOGOS",
@@ -15,17 +15,17 @@ const resources = [
     {
         title: "TABELA DE CONVERSÃO DE MEDIDAS",
         description: "Ferramenta de consulta rápida para conversão de unidades de medida utilizadas na engenharia.",
-        image: "https://picsum.photos/seed/rao-conversion/600/400"
+        image: "regua.png"
     },
     {
         title: "TABELA DE FLANGES",
         description: "Especificações técnicas e dimensões padronizadas para diferentes tipos de flanges industriais.",
-        image: "https://picsum.photos/seed/rao-flanges/600/400"
+        image: "disco.png"
     },
     {
         title: "TABELA DE CONVERSÃO DE PRESSÃO",
         description: "Referência técnica para conversão entre diferentes escalas de pressão (PSI, Bar, MPa, etc).",
-        image: "https://picsum.photos/seed/rao-pressure/600/400"
+        image: "tabela.png"
     }
 ];
 

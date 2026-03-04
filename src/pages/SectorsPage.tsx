@@ -14,7 +14,7 @@ export default function SectorsPage() {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://picsum.photos/seed/rao-sectors-hero/1920/1080"
+                            src="container.png"
                             alt="Setores RAO Engenharia Background"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"

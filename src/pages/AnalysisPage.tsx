@@ -12,7 +12,7 @@ export default function AnalysisPage() {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://picsum.photos/seed/rao-analysis-hero/1920/1080"
+                            src="pessoa.png"
                             alt="Análise Técnica RAO Engenharia Background"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"

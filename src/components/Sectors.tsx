@@ -25,7 +25,7 @@ export default function Sectors() {
                 </div>
 
                 {/* Grid of Service Boxes */}
-                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -33,9 +33,12 @@ export default function Sectors() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-stone-50 p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.1)] transition-all cursor-default group"
+                            className="bg-[#f4f4f4] p-10 py-7 text-center rounded border border-gray-200 
+                                shadow-[0_18px_20px_-8px_rgba(0,0,0,0.35)] 
+                                hover:shadow-[0_22px_30px_-8px_rgba(0,0,0,0.45)]
+                                transition-all duration-300 cursor-default group"
                         >
-                            <span className="text-brand-primary font-black tracking-wider text-sm lg:text-base uppercase group-hover:text-brand-accent transition-colors">
+                            <span className="text-brand-primary font-black tracking-wider text-sm lg:text-base tracking-wide uppercase group-hover:text-brand-accent transition-colors">
                                 {service}
                             </span>
                         </motion.div>
@@ -49,8 +52,11 @@ export default function Sectors() {
                         transition={{ delay: 0.7 }}
                         className="md:col-span-2 flex justify-center"
                     >
-                        <div className="w-full lg:w-2/3 bg-stone-50 p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.1)] transition-all cursor-default group">
-                            <span className="text-brand-primary font-black tracking-wider text-sm lg:text-base uppercase group-hover:text-brand-accent transition-colors">
+                        <div className="w-full lg:w-2/3 bg-[#f4f4f4] p-10 py-7 text-center rounded border border-gray-200
+                                shadow-[0_18px_20px_-8px_rgba(0,0,0,0.35)]
+                                hover:shadow-[0_22px_30px_-8px_rgba(0,0,0,0.45)]
+                                transition-all duration-300 cursor-default group">
+                            <span className="text-brand-primary font-black tracking-wider text-sm lg:text-base tracking-wide uppercase group-hover:text-brand-accent transition-colors">
                                 CONSULTORIA EM ENGENHARIA
                             </span>
                         </div>

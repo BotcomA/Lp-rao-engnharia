@@ -12,7 +12,7 @@ export default function ServicesPage() {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://picsum.photos/seed/rao-services-hero/1920/1080"
+                            src="insdustria.png"
                             alt="Serviços RAO Engenharia Background"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"
