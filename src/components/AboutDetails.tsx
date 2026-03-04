@@ -23,7 +23,7 @@ export default function AboutDetails() {
 
                         <div className="space-y-8 text-lg lg:text-xl leading-relaxed opacity-90">
                             <p>
-                                Fundada em 1997, a RAO Engenharia atua há <span className="bg-brand-accent px-2 py-0.5 font-bold">30 anos</span> desenvolvendo soluções técnicas inteligentes, seguras e sob medida para operações industriais.
+                                Fundada há <span className="bg-brand-accent px-2 py-0.5 font-bold">30 anos</span> a RAO Engenharia atua desenvolvendo soluções técnicas inteligentes, seguras e sob medida para operações industriais.
                             </p>
 
                             <p>
@@ -45,11 +45,15 @@ export default function AboutDetails() {
                                         <div className="absolute top-[-32px] left-1/2 -translate-x-1/2 w-0.5 h-8 bg-white"></div>
 
                                         <div className="text-center">
-                                            <p className="text-[10px] font-bold tracking-widest uppercase mb-2 opacity-60">
+                                            <div className="
+    inline-block
+    px-4 py-2
+    bg-brand-accent
+    rounded-full
+    text-xs font-bold
+    whitespace-nowrap
+  ">
                                                 {event.label}
-                                            </p>
-                                            <div className="inline-block bg-brand-accent px-4 py-1 rounded-full text-sm font-black">
-                                                {event.year}
                                             </div>
                                         </div>
                                     </div>
