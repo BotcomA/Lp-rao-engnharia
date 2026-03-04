@@ -5,6 +5,12 @@ export default function Services() {
         <section id="servicos" className="py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
 
+                <div className="mb-10 text-center">
+                    <h2 className="text-3xl lg:text-4xl font-black tracking-tight text-brand-primary uppercase relative inline-block">
+                        MOVIMENTAÇÃO DE CARGAS COM ENGENHARIA APLICADA
+                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-1 bg-brand-accent"></div>
+                    </h2>
+                </div>
                 {/* Block 1: Movimentação de Cargas */}
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -13,12 +19,7 @@ export default function Services() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="mb-10">
-                            <h2 className="text-3xl lg:text-4xl font-black tracking-tight text-brand-primary uppercase inline-block relative">
-                                MOVIMENTAÇÃO DE CARGAS COM ENGENHARIA APLICADA
-                                <div className="absolute -bottom-2 left-0 w-full h-1 bg-brand-accent"></div>
-                            </h2>
-                        </div>
+
 
                         <div className="space-y-6">
                             <p className="text-stone-600 text-lg font-medium">
