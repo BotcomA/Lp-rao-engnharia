@@ -15,7 +15,7 @@ export default function AboutPage() {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://picsum.photos/seed/rao-about-hero/1920/1080"
+                            src="operadores.png"
                             alt="A RAO Engenharia Background"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"

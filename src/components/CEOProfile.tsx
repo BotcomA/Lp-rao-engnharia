@@ -15,7 +15,7 @@ export default function CEOProfile() {
                     >
                         <div className="relative z-10 border-4 border-brand-accent p-1 shadow-2xl">
                             <img
-                                src="https://picsum.photos/seed/rao-ceo/800/1000"
+                                src="ricardo.png"
                                 alt="Ricardo Aparecido de Oliveira"
                                 className="w-full h-auto object-cover"
                                 referrerPolicy="no-referrer"

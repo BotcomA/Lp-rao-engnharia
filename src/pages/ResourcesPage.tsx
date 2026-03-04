@@ -12,7 +12,7 @@ export default function ResourcesPage() {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="https://picsum.photos/seed/rao-resources-hero/1920/1080"
+                            src="compaso.png"
                             alt="Recursos RAO Engenharia Background"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"

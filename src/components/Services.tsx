@@ -6,7 +6,7 @@ export default function Services() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
 
                 {/* Block 1: Movimentação de Cargas */}
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-[1.5fr_1fr] gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -33,7 +33,7 @@ export default function Services() {
                                     "ANÁLISE DE RISCOS",
                                     "EMISSÃO DE ART"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-brand-accent font-black text-xs tracking-widest">
+                                    <li key={i} className="flex items-center gap-3 text-brand-accent font-black text-sm tracking-widest">
                                         <span className="w-1.5 h-1.5 bg-brand-accent rounded-full"></span>
                                         {item}
                                     </li>
@@ -46,6 +46,7 @@ export default function Services() {
                         </div>
                     </motion.div>
 
+                    {/* IMAGEM DO GUINDASTE */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -53,12 +54,11 @@ export default function Services() {
                         transition={{ duration: 0.8 }}
                         className="relative"
                     >
-                        <div className="aspect-[16/10] bg-stone-200 rounded-[100px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl">
+                        <div className="aspect-[16/9] rounded-[120px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl">
                             <img
-                                src="https://picsum.photos/seed/rigging-rao/800/500"
+                                src="/Guindaste.png"
                                 alt="Movimentação de Cargas"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                                referrerPolicy="no-referrer"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </motion.div>
@@ -73,11 +73,11 @@ export default function Services() {
                         transition={{ duration: 0.8 }}
                         className="order-2 lg:order-1 relative"
                     >
-                        <div className="aspect-[16/10] bg-stone-200 rounded-[100px] rounded-tl-none rounded-br-none overflow-hidden shadow-2xl">
+                        <div className="aspect-[16/10] bg-stone-200 rounded-[120px] rounded-tl-none rounded-br-none overflow-hidden shadow-2xl">
                             <img
-                                src="https://picsum.photos/seed/tech-resp-rao/800/500"
+                                src="/responsabilidade.png"
                                 alt="Responsabilidade Técnica"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                className="w-full h-full object-cover"
                                 referrerPolicy="no-referrer"
                             />
                         </div>
@@ -110,7 +110,7 @@ export default function Services() {
                                     "SEGURANÇA ESTRUTURAL",
                                     "CONTROLE TÉCNICO DOCUMENTADO"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-brand-accent font-black text-xs tracking-widest">
+                                    <li key={i} className="flex items-center gap-3 text-brand-accent font-black text-sm tracking-widest">
                                         <span className="w-1.5 h-1.5 bg-brand-accent rounded-full"></span>
                                         {item}
                                     </li>

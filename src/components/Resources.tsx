@@ -6,7 +6,7 @@ export default function Resources() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://picsum.photos/seed/industrial-sectors/1920/1080" 
+          src="armazen.png" 
           alt="Setores Atendidos Background" 
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
