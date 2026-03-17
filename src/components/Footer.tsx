@@ -2,104 +2,76 @@ import { Instagram, Facebook, Linkedin, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="py-16 bg-[#141414] text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Location */}
-                <p className="text-stone-300 text-lg mb-10 font-medium text-center">
-                    Cianorte – PR | Noroeste do Paraná - America do Sul.
+        <footer className="py-20 bg-[#111010] text-white relative">
+            <div className="max-w-6xl mx-auto px-4">
+
+                {/* Localização */}
+                <p className="text-center text-stone-300">
+                    Cianorte – PR | Noroeste do Paraná - América do Sul.
                 </p>
 
-                {/* Logo + Rotary */}
-                <div className="grid md:grid-cols-2 items-center gap-10 mb-10">
-                    
-                    {/* Logo RAO */}
-                    <div className="flex justify-center md:justify-end">
-                        <div className="flex items-center gap-4">
-                            <div className="flex gap-1.5">
-                                <div className="w-2.5 h-16 bg-white"></div>
-                                <div className="w-2.5 h-16 bg-white"></div>
-                                <div className="w-2.5 h-16 bg-white"></div>
-                            </div>
+                {/* BLOCO PRINCIPAL */}
+                <div className="relative flex flex-col items-center">
 
-                            <div className="flex flex-col items-start leading-none">
-                                <span className="text-7xl font-black tracking-tighter text-white">
-                                    RAO
-                                </span>
-                                <span className="text-2xl font-bold tracking-[0.3em] text-white -mt-1">
-                                    ENGENHARIA
-                                </span>
-                            </div>
+                    {/* LOGO CENTRAL */}
+                    <img
+                        src="/img/logo-rao-branca.png"
+                        alt="RAO Engenharia"
+                        className="h-40 md:h-48 lg:h-56 object-contain"
+                    />
+
+                    {/* SELO (posição absoluta à direita) */}
+                    <img
+                        src="/rotary.png"
+                        alt="Selo Rotary"
+                        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[320px]"
+                    />
+
+                    {/* CONTATO + REDES */}
+                    <div className="flex items-center gap-6 mt-8 text-stone-300">
+
+                        <div className="flex items-center gap-2">
+                            <Phone size={18} />
+                            <span>(44) 98821-6169</span>
                         </div>
-                    </div>
 
-                    {/* Selo Rotary */}
-                    <div className="flex justify-center md:justify-start">
-                        <img
-                            src="/rotary.png"
-                            alt="Selo de Responsabilidade Social Rotary"
-                            className="w-[260px] md:w-[300px] object-contain"
-                        />
-                    </div>
-                </div>
-
-                {/* Contact + Social */}
-                <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
-                    
-                    <div className="flex items-center gap-2 text-stone-300">
-                        <Phone size={20} className="fill-stone-300 text-stone-300" />
-                        <span className="text-xl font-medium">
-                            (44) 98821-6169
-                        </span>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                        <a href="#" className="text-white hover:text-brand-accent transition-colors">
-                            <Instagram size={24} />
-                        </a>
-
-                        <a href="#" className="text-white hover:text-brand-accent transition-colors">
-                            <Facebook size={24} />
-                        </a>
-
-                        <a href="#" className="text-white hover:text-brand-accent transition-colors">
-                            <Linkedin size={24} />
-                        </a>
-
-                        <a href="#" className="text-white hover:text-brand-accent transition-colors">
+                        <div className="flex items-center gap-4">
+                            <Instagram size={20} />
+                            <Facebook size={20} />
+                            <Linkedin size={20} />
                             <svg
                                 viewBox="0 0 24 24"
-                                width="24"
-                                height="24"
+                                width="20"
+                                height="20"
                                 stroke="currentColor"
                                 strokeWidth="2"
                                 fill="none"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
                             >
                                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                             </svg>
-                        </a>
+                        </div>
+
                     </div>
                 </div>
 
-                {/* Divider */}
-                <div className="w-full h-px bg-stone-700 mb-8"></div>
+                {/* LINHA */}
+                <div className="w-full h-px bg-stone-600 my-12"></div>
 
-                {/* Email */}
-                <p className="text-2xl font-medium text-white mb-8 text-center">
+                {/* EMAIL */}
+                <p className="text-center text-2xl mb-6">
                     comercial@raoengenharia.com.br
                 </p>
 
-                {/* Copyright */}
-                <div className="space-y-2 text-center">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
-                        © RAO ENGENHARIA – A INDUSTRIA DAS INDUSTRIAS.
+                {/* RODAPÉ */}
+                <div className="text-center space-y-1">
+                    <p className="text-[10px] uppercase tracking-widest text-white-400">
+                        © RAO ENGENHARIA – A INDÚSTRIA DAS INDÚSTRIAS.
                     </p>
-
-                    <p className="text-[10px] text-stone-500">
+                    <p className="text-[10px] text-white-500">
                         Todos os direitos reservados.
                     </p>
                 </div>
+
             </div>
         </footer>
     );

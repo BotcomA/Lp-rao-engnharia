@@ -27,32 +27,21 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-white border-b border-stone-100 shadow-sm"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex justify-between h-24 items-center">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex gap-1">
-              <div className={`w-1.5 h-10 ${isScrolled ? "bg-brand-primary" : "bg-white"}`}></div>
-              <div className={`w-1.5 h-10 ${isScrolled ? "bg-brand-primary" : "bg-white"}`}></div>
-              <div className={`w-1.5 h-10 ${isScrolled ? "bg-brand-primary" : "bg-white"}`}></div>
-            </div>
-
-            <div className="flex flex-col leading-none">
-              <span className={`text-4xl font-black tracking-tighter ${isScrolled ? "text-brand-primary" : "text-white"}`}>
-                RAO
-              </span>
-
-              <span className={`text-[11px] font-bold tracking-[0.25em] mt-0.5 ${isScrolled ? "text-brand-primary" : "text-white"}`}>
-                ENGENHARIA
-              </span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img
+              src={isScrolled ? "/img/logo-rao-preta.png" : "/img/logo-rao-branca.png"}
+              alt="RAO Engenharia"
+              className="h-14 lg:h-16 w-auto object-contain transition-all duration-300"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -64,13 +53,12 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`text-base font-bold tracking-wider transition-colors hover:text-brand-accent ${
-                    isActive
+                  className={`text-base font-bold tracking-wider transition-colors hover:text-brand-accent ${isActive
                       ? "text-brand-accent"
                       : isScrolled
-                      ? "text-brand-primary/80"
-                      : "text-white/90"
-                  }`}
+                        ? "text-brand-primary/80"
+                        : "text-white/90"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -79,11 +67,10 @@ export default function Navbar() {
 
             <Link
               to="/solicitar-analise"
-              className={`px-8 py-3 border-2 transition-all text-sm font-bold rounded-full uppercase tracking-widest ${
-                isScrolled
+              className={`px-8 py-3 border-2 transition-all text-sm font-bold rounded-full uppercase tracking-widest ${isScrolled
                   ? "border-brand-accent text-brand-primary hover:bg-brand-accent hover:text-white"
                   : "border-white text-white hover:bg-white hover:text-brand-primary"
-              }`}
+                }`}
             >
               SOLICITAR ANÁLISE TÉCNICA
             </Link>
@@ -112,11 +99,10 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.href}
-              className={`block text-lg font-bold tracking-wider hover:text-brand-accent ${
-                location.pathname === link.href
+              className={`block text-lg font-bold tracking-wider hover:text-brand-accent ${location.pathname === link.href
                   ? "text-brand-accent"
                   : "text-brand-primary"
-              }`}
+                }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}

@@ -31,7 +31,7 @@ export default function Hero() {
 
                     {/* Main Title */}
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 uppercase leading-[1.05]">
-                        A INDUSTRIA DE INDUSTRIAS
+                        A INDÚSTRIA DE INDÚSTRIAS
                     </h1>
 
                     {/* Subtext */}
@@ -45,7 +45,11 @@ export default function Hero() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-14 py-6 bg-[#f27d26] text-white font-bold rounded-xl shadow-[0_10px_30px_rgba(242,125,38,0.4)] hover:bg-[#e06d1f] transition-all uppercase tracking-widest text-base lg:text-lg"
+                        className="px-14 py-6 bg-[#f27d26] text-white font-bold rounded-xl 
+  shadow-[0_10px_30px_rgba(242,125,38,0.4)]
+  hover:bg-white hover:text-black 
+  hover:shadow-[0_10px_30px_rgba(255,255,255,0.6)]
+  transition-all uppercase tracking-widest text-base lg:text-lg"
                     >
                         SOLICITAR ANÁLISE TÉCNICA
                     </motion.button>
