@@ -59,9 +59,9 @@ export default function AnalysisForm() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-6"
+                        className="space-y-5 sm:space-y-6"
                     >
-                        <div className="grid grid-cols-1 gap-6">
+                        <div className="grid grid-cols-1 gap-5 sm:gap-6">
                             <div className="space-y-2">
                                 <label className="text-xs font-black text-brand-primary tracking-widest uppercase">Nome Completo</label>
                                 <input
@@ -69,11 +69,11 @@ export default function AnalysisForm() {
                                     name="nome"
                                     value={formData.nome}
                                     onChange={handleChange}
-                                    className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                    className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                     placeholder="Seu nome completo"
                                 />
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
                                 <div className="space-y-2">
                                     <label className="text-xs font-black text-brand-primary tracking-widest uppercase">DDD</label>
                                     <input
@@ -81,7 +81,7 @@ export default function AnalysisForm() {
                                         name="ddd"
                                         value={formData.ddd}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                        className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                         placeholder="11"
                                     />
                                 </div>
@@ -92,7 +92,7 @@ export default function AnalysisForm() {
                                         name="whatsapp"
                                         value={formData.whatsapp}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                        className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                         placeholder="99999-9999"
                                     />
                                 </div>
@@ -104,11 +104,11 @@ export default function AnalysisForm() {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                    className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                     placeholder="seu@email.com"
                                 />
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
                                 <div className="space-y-2">
                                     <label className="text-xs font-black text-brand-primary tracking-widest uppercase">Cidade</label>
                                     <input
@@ -116,7 +116,7 @@ export default function AnalysisForm() {
                                         name="cidade"
                                         value={formData.cidade}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                        className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -126,28 +126,28 @@ export default function AnalysisForm() {
                                         name="estado"
                                         value={formData.estado}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                        className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-xs font-black text-brand-primary tracking-widest uppercase">País</label>
+                                    <label className="text-xs font-black text-brand-primary tracking-widest uppercase">Pais</label>
                                     <input
                                         type="text"
                                         name="pais"
                                         value={formData.pais}
                                         onChange={handleChange}
-                                        className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                        className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                         placeholder="Brasil"
                                     />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-end pt-6">
+                        <div className="flex justify-end pt-4 sm:pt-6">
                             <button
                                 onClick={nextStep}
-                                className="flex items-center gap-2 px-10 py-4 bg-brand-accent text-white font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-widest shadow-lg shadow-brand-accent/20"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 bg-brand-accent text-white text-sm sm:text-base font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-[0.18em] sm:tracking-widest shadow-lg shadow-brand-accent/20"
                             >
-                                Próximo <ChevronRight size={20} />
+                                Proximo <ChevronRight size={20} />
                             </button>
                         </div>
                     </motion.div>
@@ -159,18 +159,18 @@ export default function AnalysisForm() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-8"
+                        className="space-y-6 sm:space-y-8"
                     >
-                        <div className="space-y-6">
+                        <div className="space-y-5 sm:space-y-6">
                             <div className="space-y-3">
-                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Qual é a natureza da sua necessidade?</label>
-                                <p className="text-xs text-stone-500 font-medium italic">Projeto estrutural, movimentação de cargas / rigging, montagem industrial, manutenção industrial, desenvolvimento de produto, consultoria técnica ou outro.</p>
+                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Qual e a natureza da sua necessidade?</label>
+                                <p className="text-xs text-stone-500 font-medium italic">Projeto estrutural, movimentacao de cargas / rigging, montagem industrial, manutencao industrial, desenvolvimento de produto, consultoria tecnica ou outro.</p>
                                 <input
                                     type="text"
                                     name="natureza"
                                     value={formData.natureza}
                                     onChange={handleChange}
-                                    className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
+                                    className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium"
                                     placeholder="Descreva brevemente a natureza"
                                 />
                             </div>
@@ -182,23 +182,23 @@ export default function AnalysisForm() {
                                     value={formData.descricao}
                                     onChange={handleChange}
                                     rows={4}
-                                    className="w-full px-6 py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium resize-none"
-                                    placeholder="Detalhes técnicos da sua necessidade..."
+                                    className="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-white border-2 border-stone-200 rounded-2xl focus:border-brand-accent outline-none transition-all font-medium resize-none"
+                                    placeholder="Detalhes tecnicos da sua necessidade..."
                                 />
                             </div>
                         </div>
-                        <div className="flex justify-between pt-6">
+                        <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 sm:gap-4 pt-4 sm:pt-6">
                             <button
                                 onClick={prevStep}
-                                className="flex items-center gap-2 px-8 py-4 border-2 border-stone-200 text-brand-primary font-black rounded-2xl hover:bg-stone-100 transition-all uppercase tracking-widest"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-stone-200 text-brand-primary text-sm sm:text-base font-black rounded-2xl hover:bg-stone-100 transition-all uppercase tracking-[0.18em] sm:tracking-widest"
                             >
                                 <ChevronLeft size={20} /> Anterior
                             </button>
                             <button
                                 onClick={nextStep}
-                                className="flex items-center gap-2 px-10 py-4 bg-brand-accent text-white font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-widest shadow-lg shadow-brand-accent/20"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 bg-brand-accent text-white text-sm sm:text-base font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-[0.18em] sm:tracking-widest shadow-lg shadow-brand-accent/20"
                             >
-                                Próximo <ChevronRight size={20} />
+                                Proximo <ChevronRight size={20} />
                             </button>
                         </div>
                     </motion.div>
@@ -210,20 +210,19 @@ export default function AnalysisForm() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-10"
+                        className="space-y-8 sm:space-y-10"
                     >
-                        <div className="space-y-8">
-                            {/* Documentação */}
+                        <div className="space-y-6 sm:space-y-8">
                             <div className="space-y-4">
-                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Existe documentação técnica?</label>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    {["Sim, possuo projetos/desenhos.", "Parcial", "Não possuo documentação."].map((opt) => (
+                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Existe documentacao tecnica?</label>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                                    {["Sim, possuo projetos/desenhos.", "Parcial", "Nao possuo documentacao."].map((opt) => (
                                         <button
                                             key={opt}
                                             onClick={() => handleRadioChange("documentacao", opt)}
-                                            className={`px-6 py-4 rounded-2xl border-2 transition-all text-sm font-bold text-left ${formData.documentacao === opt
-                                                    ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
-                                                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                                            className={`px-4 sm:px-6 py-3.5 sm:py-4 rounded-2xl border-2 transition-all text-sm font-bold text-left ${formData.documentacao === opt
+                                                ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
+                                                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
                                                 }`}
                                         >
                                             {opt}
@@ -232,17 +231,16 @@ export default function AnalysisForm() {
                                 </div>
                             </div>
 
-                            {/* Complexidade */}
                             <div className="space-y-4">
                                 <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Complexidade Estimada</label>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    {["Baixa", "Média", "Alta", "Alta complexidade / risco elevado"].map((opt) => (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                                    {["Baixa", "Media", "Alta", "Alta complexidade / risco elevado"].map((opt) => (
                                         <button
                                             key={opt}
                                             onClick={() => handleRadioChange("complexidade", opt)}
-                                            className={`px-4 py-4 rounded-2xl border-2 transition-all text-sm font-bold text-center ${formData.complexidade === opt
-                                                    ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
-                                                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                                            className={`px-4 py-3.5 sm:py-4 rounded-2xl border-2 transition-all text-sm font-bold text-center ${formData.complexidade === opt
+                                                ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
+                                                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
                                                 }`}
                                         >
                                             {opt}
@@ -251,17 +249,16 @@ export default function AnalysisForm() {
                                 </div>
                             </div>
 
-                            {/* Prazo */}
                             <div className="space-y-4">
                                 <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Prazo Desejado</label>
-                                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                                    {["Urgente (até 7 dias)", "15 dias", "20 dias", "30 dias", "A definir"].map((opt) => (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
+                                    {["Urgente (ate 7 dias)", "15 dias", "20 dias", "30 dias", "A definir"].map((opt) => (
                                         <button
                                             key={opt}
                                             onClick={() => handleRadioChange("prazo", opt)}
-                                            className={`px-3 py-4 rounded-2xl border-2 transition-all text-xs font-bold text-center ${formData.prazo === opt
-                                                    ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
-                                                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                                            className={`px-3 py-3.5 sm:py-4 rounded-2xl border-2 transition-all text-xs font-bold text-center ${formData.prazo === opt
+                                                ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
+                                                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
                                                 }`}
                                         >
                                             {opt}
@@ -270,17 +267,16 @@ export default function AnalysisForm() {
                                 </div>
                             </div>
 
-                            {/* Responsabilidade */}
                             <div className="space-y-4">
-                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Responsabilidade Técnica</label>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    {["Sim, com emissão de ART", "Apenas análise preliminar", "A definir"].map((opt) => (
+                                <label className="text-sm font-black text-brand-primary tracking-widest uppercase block">Responsabilidade Tecnica</label>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                                    {["Sim, com emissao de ART", "Apenas analise preliminar", "A definir"].map((opt) => (
                                         <button
                                             key={opt}
                                             onClick={() => handleRadioChange("responsabilidade", opt)}
-                                            className={`px-6 py-4 rounded-2xl border-2 transition-all text-sm font-bold text-left ${formData.responsabilidade === opt
-                                                    ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
-                                                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                                            className={`px-4 sm:px-6 py-3.5 sm:py-4 rounded-2xl border-2 transition-all text-sm font-bold text-left ${formData.responsabilidade === opt
+                                                ? "border-brand-accent bg-brand-accent/5 text-brand-accent"
+                                                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
                                                 }`}
                                         >
                                             {opt}
@@ -290,16 +286,16 @@ export default function AnalysisForm() {
                             </div>
                         </div>
 
-                        <div className="flex justify-between pt-6">
+                        <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 sm:gap-4 pt-4 sm:pt-6">
                             <button
                                 onClick={prevStep}
-                                className="flex items-center gap-2 px-8 py-4 border-2 border-stone-200 text-brand-primary font-black rounded-2xl hover:bg-stone-100 transition-all uppercase tracking-widest"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-stone-200 text-brand-primary text-sm sm:text-base font-black rounded-2xl hover:bg-stone-100 transition-all uppercase tracking-[0.18em] sm:tracking-widest"
                             >
                                 <ChevronLeft size={20} /> Anterior
                             </button>
                             <button
                                 onClick={nextStep}
-                                className="flex items-center gap-2 px-10 py-4 bg-brand-accent text-white font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-widest shadow-lg shadow-brand-accent/20"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 bg-brand-accent text-white text-sm sm:text-base font-black rounded-2xl hover:bg-brand-primary transition-all uppercase tracking-[0.18em] sm:tracking-widest shadow-lg shadow-brand-accent/20"
                             >
                                 Finalizar <Send size={20} />
                             </button>
@@ -312,25 +308,25 @@ export default function AnalysisForm() {
                         key="step4"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="py-12 text-center space-y-8"
+                        className="py-8 sm:py-12 text-center space-y-6 sm:space-y-8"
                     >
                         <div className="flex justify-center">
-                            <div className="w-24 h-24 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center shadow-inner">
-                                <CheckCircle2 size={64} />
+                            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center shadow-inner">
+                                <CheckCircle2 size={56} />
                             </div>
                         </div>
                         <div className="space-y-4">
-                            <h2 className="text-5xl lg:text-7xl font-black text-brand-primary tracking-tighter uppercase">Obrigado!</h2>
-                            <p className="text-xl lg:text-2xl text-stone-600 font-medium max-w-xl mx-auto leading-relaxed">
-                                A análise técnica será conduzida diretamente pelo engenheiro responsável. Entraremos em contato em breve.
+                            <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-brand-primary tracking-tighter uppercase">Obrigado!</h2>
+                            <p className="text-base sm:text-xl lg:text-2xl text-stone-600 font-medium max-w-xl mx-auto leading-relaxed">
+                                A analise tecnica sera conduzida diretamente pelo engenheiro responsavel. Entraremos em contato em breve.
                             </p>
                         </div>
-                        <div className="pt-8">
+                        <div className="pt-4 sm:pt-8">
                             <button
                                 onClick={() => window.location.href = "/"}
-                                className="px-12 py-4 bg-brand-primary text-white font-black rounded-2xl hover:bg-brand-accent transition-all uppercase tracking-widest shadow-xl"
+                                className="w-full sm:w-auto px-8 sm:px-12 py-3.5 sm:py-4 bg-brand-primary text-white text-sm sm:text-base font-black rounded-2xl hover:bg-brand-accent transition-all uppercase tracking-[0.18em] sm:tracking-widest shadow-xl"
                             >
-                                Voltar ao Início
+                                Voltar ao Inicio
                             </button>
                         </div>
                     </motion.div>
@@ -341,22 +337,21 @@ export default function AnalysisForm() {
     };
 
     return (
-        <section className="py-24 bg-stone-50">
+        <section className="py-16 md:py-24 bg-stone-50">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Progress Bar */}
                 {step < 4 && (
-                    <div className="mb-12">
-                        <div className="flex justify-between mb-4">
+                    <div className="mb-10 sm:mb-12">
+                        <div className="flex justify-between mb-4 gap-2">
                             {[1, 2, 3].map((s) => (
-                                <div key={s} className="flex flex-col items-center">
+                                <div key={s} className="flex flex-col items-center flex-1">
                                     <div
-                                        className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all duration-500 ${step >= s ? "bg-brand-accent text-white shadow-lg shadow-brand-accent/30" : "bg-stone-200 text-stone-400"
+                                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black text-xs sm:text-sm transition-all duration-500 ${step >= s ? "bg-brand-accent text-white shadow-lg shadow-brand-accent/30" : "bg-stone-200 text-stone-400"
                                             }`}
                                     >
                                         {s}
                                     </div>
-                                    <span className={`text-[10px] font-black mt-2 tracking-widest uppercase ${step >= s ? "text-brand-accent" : "text-stone-400"}`}>
-                                        {s === 1 ? "Contato" : s === 2 ? "Necessidade" : "Técnico"}
+                                    <span className={`text-[9px] sm:text-[10px] font-black mt-2 tracking-[0.18em] sm:tracking-widest uppercase text-center ${step >= s ? "text-brand-accent" : "text-stone-400"}`}>
+                                        {s === 1 ? "Contato" : s === 2 ? "Necessidade" : "Tecnico"}
                                     </span>
                                 </div>
                             ))}
@@ -372,7 +367,7 @@ export default function AnalysisForm() {
                     </div>
                 )}
 
-                <div className="bg-white rounded-[3rem] p-8 lg:p-16 shadow-[16px_16px_0px_0px_rgba(0,0,0,0.05)] border border-stone-100 min-h-[500px] flex flex-col justify-center">
+                <div className="bg-white rounded-[2rem] lg:rounded-[3rem] p-4 sm:p-6 lg:p-16 shadow-[16px_16px_0px_0px_rgba(0,0,0,0.05)] border border-stone-100 min-h-[500px] flex flex-col justify-center">
                     <AnimatePresence mode="wait">
                         {renderStep()}
                     </AnimatePresence>

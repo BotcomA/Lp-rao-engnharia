@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, type TouchEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FileText, Download, X, Eye, Info, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -31,6 +31,22 @@ const catalogs = [
         specs: [
             { label: "Nome do equipamento", value: "Guindaste Sany STC80" },
             { label: "Capacidade máxima", value: "80 toneladas" },
+            { label: "Extensão máxima", value: "45 m" },
+            { label: "Extensão máxima com JIB", value: "61 m" },
+            { label: "Lança", value: "Telescópico" }
+        ]
+    },
+    {
+        id: "g-80",
+        title: "Guindaste Sany 75ton",
+        subtitle: "STC75",
+        description: "Versatilidade e precisão em operações de médio e grande porte.",
+        image: "/img/Guindaste_sany_75ton.png",
+        pdfUrl: "/img/Guindaste_sany_75ton.png",
+        category: "GUINDASTES",
+        specs: [
+            { label: "Nome do equipamento", value: "Guindaste Sany STC75" },
+            { label: "Capacidade máxima", value: "75 toneladas" },
             { label: "Extensão máxima", value: "45 m" },
             { label: "Extensão máxima com JIB", value: "61 m" },
             { label: "Lança", value: "Telescópico" }
@@ -86,19 +102,67 @@ const catalogs = [
         ]
     },
     {
-        id: "m-45",
-        title: "Munck 45.007",
-        subtitle: "CAMINHÃO MUNCK",
-        description: "Ideal para montagens industriais e transporte de cargas.",
-        image: "/img/catalogo4.png",
-        pdfUrl: "/img/catalogo4.png",
-        category: "CAMINHÃO MUNCK",
-        specs: [
-            { label: "Nome do equipamento", value: "Caminhão Munck 45.007" },
-            { label: "Capacidade máxima", value: "10,9 toneladas" },
-            { label: "Extensão máxima vertical", value: "20,5 m" },
-            { label: "Extensão máxima horizontal", value: "17,5 m" },
-            { label: "Lança", value: "articulada com lanças telescópicas" }
+        "id": "m-45",
+        "title": "Munck 45.007",
+        "subtitle": "CAMINHÃO MUNCK",
+        "description": "Equipamento robusto para operações pesadas, ideal para montagens industriais, içamento de grandes cargas e projetos que exigem alto alcance e precisão.",
+        "image": "/img/catalogo4.png",
+        "pdfUrl": "/img/catalogo4.png",
+        "category": "CAMINHÃO MUNCK",
+        "specs": [
+            { "label": "Nome do equipamento", "value": "Caminhão Munck 45.007" },
+            { "label": "Capacidade máxima", "value": "10,9 toneladas" },
+            { "label": "Extensão máxima vertical", "value": "20,5 m" },
+            { "label": "Extensão máxima horizontal", "value": "17,5 m" },
+            { "label": "Lança", "value": "Articulada com lanças telescópicas" }
+        ]
+    },
+    {
+        "id": "m-35",
+        "title": "Munck 35.000",
+        "subtitle": "CAMINHÃO MUNCK",
+        "description": "Versátil e eficiente para serviços de médio porte, oferecendo ótimo alcance e capacidade para transporte e instalação de estruturas com segurança.",
+        "image": "/img/catalogo4.png",
+        "pdfUrl": "/img/catalogo4.png",
+        "category": "CAMINHÃO MUNCK",
+        "specs": [
+            { "label": "Nome do equipamento", "value": "Caminhão Munck 35.000" },
+            { "label": "Capacidade máxima", "value": "8,1 toneladas" },
+            { "label": "Extensão máxima vertical", "value": "19,2 m" },
+            { "label": "Extensão máxima horizontal", "value": "16,10 m" },
+            { "label": "Lança", "value": "Articulada com lanças telescópicas" }
+        ]
+    },
+    {
+        "id": "m-25",
+        "title": "Munck 25.000",
+        "subtitle": "CAMINHÃO MUNCK",
+        "description": "Ideal para operações urbanas e industriais leves, combinando agilidade com bom alcance para içamento e movimentação de cargas.",
+        "image": "/img/catalogo4.png",
+        "pdfUrl": "/img/catalogo4.png",
+        "category": "CAMINHÃO MUNCK",
+        "specs": [
+            { "label": "Nome do equipamento", "value": "Caminhão Munck 25.000" },
+            { "label": "Capacidade máxima", "value": "5,9 toneladas" },
+            { "label": "Extensão máxima vertical", "value": "16,4 m" },
+            { "label": "Extensão máxima horizontal", "value": "13,2 m" },
+            { "label": "Lança", "value": "Articulada com lanças telescópicas" }
+        ]
+    },
+    {
+        "id": "m-18",
+        "title": "Munck 18.000",
+        "subtitle": "CAMINHÃO MUNCK",
+        "description": "Compacto e ágil, perfeito para espaços reduzidos e serviços mais leves, mantendo eficiência e segurança nas operações.",
+        "image": "/img/catalogo4.png",
+        "pdfUrl": "/img/catalogo4.png",
+        "category": "CAMINHÃO MUNCK",
+        "specs": [
+            { "label": "Nome do equipamento", "value": "Caminhão Munck 18.000" },
+            { "label": "Capacidade máxima", "value": "3 toneladas" },
+            { "label": "Extensão máxima vertical", "value": "16 m" },
+            { "label": "Extensão máxima horizontal", "value": "13 m" },
+            { "label": "Lança", "value": "Articulada com lanças telescópicas" }
         ]
     },
     // PLATAFORMA ARTICULADA
@@ -185,6 +249,8 @@ export default function ResourcesList() {
     const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeTab, setActiveTab] = useState<'equipamentos' | 'tabelas'>('equipamentos');
+    const touchStartX = useRef<number | null>(null);
+    const swipeThreshold = 50;
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % catalogs.length);
@@ -192,6 +258,28 @@ export default function ResourcesList() {
 
     const prevSlide = () => {
         setCurrentSlide((prev) => (prev - 1 + catalogs.length) % catalogs.length);
+    };
+
+    const handleSwipe = (offsetX: number) => {
+        if (offsetX <= -swipeThreshold) {
+            nextSlide();
+        } else if (offsetX >= swipeThreshold) {
+            prevSlide();
+        }
+    };
+
+    const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+        touchStartX.current = event.changedTouches[0]?.clientX ?? null;
+    };
+
+    const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+        if (touchStartX.current === null) {
+            return;
+        }
+
+        const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+        handleSwipe(touchEndX - touchStartX.current);
+        touchStartX.current = null;
     };
 
     const handleDownload = (e: React.MouseEvent, url: string, filename: string) => {
@@ -206,14 +294,14 @@ export default function ResourcesList() {
     };
 
     return (
-        <section className="py-32 bg-stone-50/50 overflow-hidden min-h-[900px]">
+        <section className="py-20 md:py-32 bg-stone-50/50 overflow-hidden min-h-0 md:min-h-[900px]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Tab Navigation Headers */}
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 mb-20 items-start md:items-center justify-center">
+                <div className="flex flex-col md:flex-row gap-5 md:gap-16 mb-14 md:mb-20 items-stretch md:items-center justify-center">
                     <button
                         onClick={() => setActiveTab('equipamentos')}
-                        className={`text-4xl lg:text-6xl font-black tracking-tighter uppercase transition-all duration-500 text-left ${activeTab === 'equipamentos'
+                        className={`w-full md:w-auto text-3xl sm:text-4xl lg:text-6xl font-black tracking-tighter uppercase transition-all duration-500 text-left ${activeTab === 'equipamentos'
                             ? "text-brand-primary scale-100"
                             : "text-brand-primary opacity-20 hover:opacity-40 scale-95 origin-left"
                             }`}
@@ -222,7 +310,7 @@ export default function ResourcesList() {
                     </button>
                     <button
                         onClick={() => setActiveTab('tabelas')}
-                        className={`text-4xl lg:text-6xl font-black tracking-tighter uppercase transition-all duration-500 text-left ${activeTab === 'tabelas'
+                        className={`w-full md:w-auto text-3xl sm:text-4xl lg:text-6xl font-black tracking-tighter uppercase transition-all duration-500 text-left ${activeTab === 'tabelas'
                             ? "text-brand-primary scale-100"
                             : "text-brand-primary opacity-20 hover:opacity-40 scale-95 origin-left"
                             }`}
@@ -241,14 +329,18 @@ export default function ResourcesList() {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="max-w-3xl mb-12 mx-auto">
-                                <p className="text-stone-500 text-lg font-medium text-center">
+                                <p className="text-stone-500 text-base sm:text-lg font-medium">
                                     Explore nossa frota completa de guindastes, muncks e plataformas. Equipamentos de última geração para garantir a eficiência do seu projeto.
                                 </p>
                             </div>
 
                             {/* Featured Catalogs Carousel */}
-                            <div className="relative mb-32">
-                                <div className="overflow-hidden rounded-[3rem]">
+                            <div className="relative mb-20 md:mb-32">
+                                <div
+                                    className="overflow-hidden rounded-[2rem] md:rounded-[3rem]"
+                                    onTouchStart={handleTouchStart}
+                                    onTouchEnd={handleTouchEnd}
+                                >
                                     <motion.div
                                         className="flex"
                                         animate={{ x: `-${currentSlide * 100}%` }}
@@ -257,13 +349,14 @@ export default function ResourcesList() {
                                         {catalogs.map((catalog) => (
                                             <div
                                                 key={catalog.id}
-                                                className="min-w-full px-1"
+                                                className="min-w-full px-0 md:px-1"
                                             >
                                                 <motion.div
-                                                    className="group relative bg-white rounded-[2.5rem] p-4 lg:p-6 border border-stone-200 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden mx-1"
+                                                    onClick={() => setSelectedResource(catalog)}
+                                                    className="group relative bg-white rounded-[2rem] md:rounded-[2.5rem] p-4 sm:p-5 lg:p-6 border border-stone-200 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
                                                 >
-                                                    <div className="flex flex-col md:flex-row gap-8 items-center h-full relative z-10">
-                                                        <div className="w-full md:w-2/5 aspect-[4/5] rounded-[2rem] overflow-hidden bg-stone-100">
+                                                    <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center h-full relative z-10">
+                                                        <div className="w-full md:w-2/5 aspect-[5/4] md:aspect-[4/5] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-stone-100">
                                                             <img
                                                                 src={catalog.image}
                                                                 alt={catalog.title}
@@ -271,7 +364,7 @@ export default function ResourcesList() {
                                                                 referrerPolicy="no-referrer"
                                                             />
                                                         </div>
-                                                        <div className="w-full md:w-3/5 pr-4 lg:pr-8 py-4">
+                                                        <div className="w-full md:w-3/5 pr-0 md:pr-4 lg:pr-8 py-2 md:py-4">
                                                             <div className="flex flex-col h-full justify-between">
                                                                 <div>
                                                                     <div className="flex items-center gap-2 mb-4">
@@ -280,7 +373,7 @@ export default function ResourcesList() {
                                                                             {catalog.category || "Catálogo Oficial"}
                                                                         </span>
                                                                     </div>
-                                                                    <h3 className="text-2xl lg:text-4xl font-black text-brand-primary tracking-tight uppercase mb-4 leading-tight">
+                                                                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-primary tracking-tight uppercase mb-4 leading-tight">
                                                                         {catalog.title}
                                                                     </h3>
                                                                     <p className="text-stone-400 text-sm font-bold uppercase tracking-widest">
@@ -288,10 +381,13 @@ export default function ResourcesList() {
                                                                     </p>
                                                                 </div>
 
-                                                                <div className="mt-10 flex flex-wrap items-center gap-4">
+                                                                <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-4">
                                                                     <button
-                                                                        onClick={() => setSelectedResource(catalog)}
-                                                                        className="px-8 py-3 bg-brand-primary text-white text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-brand-accent transition-colors flex items-center gap-2 shadow-lg shadow-brand-primary/20"
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            setSelectedResource(catalog);
+                                                                        }}
+                                                                        className="w-full sm:w-auto px-8 py-3 bg-brand-primary text-white text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-brand-accent transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20"
                                                                     >
                                                                         <Eye size={14} />
                                                                         Saiba mais
@@ -302,8 +398,8 @@ export default function ResourcesList() {
                                                     </div>
 
                                                     {/* Decorative background logo */}
-                                                    <div className="absolute -bottom-10 -right-10 opacity-[0.08] pointer-events-none transition-all duration-500 group-hover:opacity-[0.52]">
-                                                        <span className="block text-[15rem] font-black tracking-tighter text-black transform transition-transform duration-500 group-hover:scale-140 group-hover:-translate-y-2">
+                                                    <div className="absolute -bottom-6 md:-bottom-10 -right-6 md:-right-10 opacity-[0.08] pointer-events-none transition-all duration-500 group-hover:opacity-[0.52]">
+                                                        <span className="block text-[8rem] sm:text-[10rem] md:text-[15rem] font-black tracking-tighter text-black transform transition-transform duration-500 group-hover:scale-140 group-hover:-translate-y-2">
                                                             RAO
                                                         </span>
                                                     </div>
@@ -314,12 +410,12 @@ export default function ResourcesList() {
                                 </div>
 
                                 {/* Carousel Controls */}
-                                <div className="flex items-center justify-center gap-6 mt-12">
+                                <div className="flex items-center justify-center gap-3 sm:gap-6 mt-8 md:mt-12">
                                     <button
                                         onClick={prevSlide}
-                                        className="w-14 h-14 rounded-full border-2 border-stone-200 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all shadow-lg bg-white active:scale-95"
+                                        className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border-2 border-stone-200 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all shadow-lg bg-white active:scale-95"
                                     >
-                                        <ChevronLeft size={24} />
+                                        <ChevronLeft size={20} />
                                     </button>
 
                                     <div className="flex gap-3">
@@ -335,9 +431,9 @@ export default function ResourcesList() {
 
                                     <button
                                         onClick={nextSlide}
-                                        className="w-14 h-14 rounded-full border-2 border-stone-200 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all shadow-lg bg-white active:scale-95"
+                                        className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border-2 border-stone-200 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all shadow-lg bg-white active:scale-95"
                                     >
-                                        <ChevronRight size={24} />
+                                        <ChevronRight size={20} />
                                     </button>
                                 </div>
                             </div>
@@ -351,7 +447,7 @@ export default function ResourcesList() {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="max-w-3xl mb-12 mx-auto">
-                                <p className="text-stone-500 text-lg font-medium text-center">
+                                <p className="text-stone-500 text-base sm:text-lg font-medium">
                                     Tabelas de referência técnica, conversões e especificações para apoio em campo e planejamento de engenharia.
                                 </p>
                             </div>
@@ -366,7 +462,7 @@ export default function ResourcesList() {
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.8 }}
-                                            className={`bg-white rounded-[2.5rem] p-6 lg:p-8 border-2 border-stone-100 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.05)] flex flex-col md:flex-row items-center gap-8 lg:gap-12 transition-all hover:shadow-[10px_10px_0px_0px_rgba(242,125,38,0.1)] hover:border-brand-accent/20 ${index % 2 === 1 ? "md:flex-row-reverse" : ""
+                                            className={`bg-white rounded-[2rem] md:rounded-[2.5rem] p-4 sm:p-6 lg:p-8 border-2 border-stone-100 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.05)] flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12 transition-all hover:shadow-[10px_10px_0px_0px_rgba(242,125,38,0.1)] hover:border-brand-accent/20 ${index % 2 === 1 ? "md:flex-row-reverse" : ""
                                                 }`}
                                         >
                                             <div className="w-full md:w-1/3 aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden border border-stone-100 shadow-inner">
@@ -377,24 +473,24 @@ export default function ResourcesList() {
                                                     referrerPolicy="no-referrer"
                                                 />
                                             </div>
-                                            <div className="flex-grow text-center md:text-left">
+                                            <div className="flex-grow w-full">
                                                 <h3 className="text-xl lg:text-3xl font-black text-brand-primary tracking-tight uppercase mb-2">
                                                     {table.title}
                                                 </h3>
                                                 <p className="text-stone-400 font-bold tracking-widest text-xs lg:text-sm uppercase leading-relaxed mb-6">
                                                     {table.subtitle}
                                                 </p>
-                                                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                                                <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3 sm:gap-4">
                                                     <button
                                                         onClick={() => setSelectedResource(table)}
-                                                        className="px-6 py-2.5 bg-brand-primary text-white text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-brand-accent transition-colors flex items-center gap-2 shadow-lg shadow-brand-primary/10"
+                                                        className="w-full sm:w-auto px-6 py-3 sm:py-2.5 bg-brand-primary text-white text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-brand-accent transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/10"
                                                     >
                                                         <Eye size={14} />
                                                         Saiba mais
                                                     </button>
                                                     <button
                                                         onClick={(e) => handleDownload(e, table.pdfUrl, `${table.title}.pdf`)}
-                                                        className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 hover:text-brand-accent hover:border-brand-accent transition-all bg-white"
+                                                        className="w-full sm:w-10 h-11 sm:h-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 hover:text-brand-accent hover:border-brand-accent transition-all bg-white"
                                                         title="Download PDF"
                                                     >
                                                         <Download size={16} />
@@ -413,7 +509,7 @@ export default function ResourcesList() {
             {/* Resource Modal */}
             <AnimatePresence>
                 {selectedResource && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-10">
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 lg:p-10">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -426,10 +522,10 @@ export default function ResourcesList() {
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            className="relative w-full max-w-7xl h-[85vh] bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row"
+                            className="relative w-full max-w-7xl h-[92vh] lg:h-[85vh] bg-white rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row"
                         >
                             {/* Modal Content - Left Side (Info) */}
-                            <div className="w-full lg:w-1/3 p-8 lg:p-12 overflow-y-auto border-b lg:border-b-0 lg:border-r border-stone-100">
+                            <div className="w-full lg:w-1/3 p-5 sm:p-6 lg:p-12 overflow-y-auto border-b lg:border-b-0 lg:border-r border-stone-100">
                                 <div className="flex items-center justify-between mb-8 lg:hidden">
                                     <div className="flex items-center gap-2">
                                         <div className="w-1 h-6 bg-brand-accent"></div>
@@ -450,7 +546,7 @@ export default function ResourcesList() {
                                     </span>
                                 </div>
 
-                                <h2 className="text-3xl lg:text-4xl font-black text-brand-primary tracking-tighter uppercase mb-4 leading-tight">
+                                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-primary tracking-tighter uppercase mb-4 leading-tight">
                                     {selectedResource.title}
                                 </h2>
                                 <p className="text-stone-400 font-bold text-sm uppercase tracking-widest mb-8">
@@ -506,7 +602,7 @@ export default function ResourcesList() {
                             </div>
 
                             {/* Modal Content - Right Side (Photo or PDF) */}
-                            <div className="w-full lg:w-2/3 bg-stone-100 relative">
+                            <div className="w-full lg:w-2/3 min-h-[260px] lg:min-h-0 bg-stone-100 relative">
                                 <button
                                     onClick={() => setSelectedResource(null)}
                                     className="hidden lg:flex absolute top-6 right-6 z-10 p-3 bg-white/80 backdrop-blur-md rounded-full text-brand-primary hover:bg-brand-accent hover:text-white transition-all shadow-lg"
@@ -514,7 +610,7 @@ export default function ResourcesList() {
                                     <X size={24} />
                                 </button>
 
-                                <div className="w-full h-full flex items-center justify-center p-8">
+                                <div className="w-full h-full flex items-center justify-center p-4 sm:p-6 lg:p-8">
                                     {selectedResource.specs && selectedResource.specs.length > 0 ? (
                                         <img
                                             src={selectedResource.image}

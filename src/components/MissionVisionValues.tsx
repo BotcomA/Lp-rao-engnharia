@@ -28,7 +28,7 @@ export default function MissionVisionValues() {
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-3 gap-0">
                     {items.map((item, index) => (
@@ -38,22 +38,22 @@ export default function MissionVisionValues() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.2 }}
-                            className={`flex flex-col items-center text-center px-8 lg:px-12 py-12 relative ${index !== items.length - 1 ? "md:border-r md:border-brand-accent/40" : ""
+                            className={`flex flex-col items-center text-center px-4 sm:px-8 lg:px-12 py-10 md:py-12 relative ${index !== items.length - 1 ? "md:border-r md:border-brand-accent/40" : ""
                                 }`}
                         >
-                            <h3 className="text-3xl lg:text-4xl font-black text-brand-primary mb-8 tracking-tight uppercase">
+                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-primary mb-6 md:mb-8 tracking-tight uppercase">
                                 {item.title}
                             </h3>
 
-                            <div className="flex-grow flex flex-col justify-center mb-12 min-h-[160px]">
+                            <div className="flex-grow flex flex-col justify-center mb-8 md:mb-12 min-h-0 md:min-h-[160px]">
                                 {item.description ? (
-                                    <p className="text-lg text-stone-600 leading-relaxed font-medium">
+                                    <p className="text-base sm:text-lg text-stone-600 leading-relaxed font-medium">
                                         {item.description}
                                     </p>
                                 ) : (
                                     <ul className="space-y-2">
                                         {item.list?.map((val, i) => (
-                                            <li key={i} className="text-lg text-stone-600 font-bold">
+                                            <li key={i} className="text-base sm:text-lg text-stone-600 font-bold">
                                                 {val}
                                             </li>
                                         ))}

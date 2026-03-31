@@ -8,7 +8,7 @@ export default function ResourcesPage() {
         <div className="min-h-screen flex flex-col selection:bg-brand-accent selection:text-white">
             <Navbar transparent />
             <main className="flex-grow">
-                <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+                <section className="relative h-screen min-h-[520px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
                         <img
@@ -28,17 +28,17 @@ export default function ResourcesPage() {
                             className="flex flex-col items-center"
                         >
                             {/* Main Title */}
-                            <h1 className="text-4xl lg:text-7xl font-black tracking-tight text-white mb-8 uppercase leading-tight max-w-6xl">
+                            <h1 className="text-3xl sm:text-4xl lg:text-7xl font-black tracking-tight text-white mb-6 md:mb-8 uppercase leading-tight max-w-6xl px-2 sm:px-0">
                                 ENGENHARIA QUE COMPARTILHA CONHECIMENTO TÉCNICO.
                             </h1>
 
                             {/* Subtitle */}
-                            <p className="text-white text-xl lg:text-2xl font-bold tracking-wider max-w-4xl uppercase leading-relaxed opacity-90 mb-12">
+                            <p className="text-white text-base sm:text-lg lg:text-2xl font-bold tracking-[0.12em] sm:tracking-wider max-w-4xl uppercase leading-relaxed opacity-90 mb-10 md:mb-12 px-2 sm:px-0">
                                 Materiais, tabelas e ferramentas para apoio à execução industrial segura e fundamentada.
                             </p>
 
                             {/* CTA Button */}
-                            <button className="px-10 py-4 border-2 border-orange-600 text-white text-sm font-black rounded-full hover:bg-brand-accent hover:border-brand-accent transition-all uppercase tracking-widest flex items-center gap-3 group">
+                            <button className="w-full sm:w-auto px-6 sm:px-10 py-4 border-2 border-orange-600 text-white text-xs sm:text-sm font-black rounded-full hover:bg-brand-accent hover:border-brand-accent transition-all uppercase tracking-[0.2em] sm:tracking-widest flex items-center justify-center gap-3 group">
                                 <span className="text-white-accent group-hover:text-white transition-colors">BAIXAR MATERIAIS TÉCNICOS</span>
                             </button>
                         </motion.div>

@@ -2,9 +2,9 @@ import { motion } from "motion/react";
 
 export default function CEOProfile() {
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-16 md:py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
                     {/* Image Column */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -22,7 +22,7 @@ export default function CEOProfile() {
                             />
                         </div>
                         {/* Decorative shadow element */}
-                        <div className="absolute -bottom-6 -right-6 w-full h-full bg-stone-100 -z-10"></div>
+                        <div className="absolute -bottom-4 md:-bottom-6 -right-4 md:-right-6 w-full h-full bg-stone-100 -z-10"></div>
                     </motion.div>
 
                     {/* Content Column */}
@@ -34,7 +34,7 @@ export default function CEOProfile() {
                         className="flex flex-col"
                     >
                         <div className="mb-8">
-                            <h2 className="text-3xl lg:text-5xl font-black text-brand-primary uppercase leading-tight">
+                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-brand-primary uppercase leading-tight">
                                 RICARDO APARECIDO DE OLIVEIRA
                             </h2>
                             <div className="mt-4 space-y-1">
@@ -48,7 +48,7 @@ export default function CEOProfile() {
                             <div className="mt-6 w-full h-0.5 bg-brand-accent"></div>
                         </div>
 
-                        <div className="grid sm:grid-cols-2 gap-12 mb-12">
+                        <div className="grid sm:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-12">
                             {/* Responsabilidade Técnica */}
                             <div className="space-y-6">
                                 <h3 className="text-xl font-bold text-brand-primary">Responsabilidade Técnica</h3>
@@ -77,7 +77,7 @@ export default function CEOProfile() {
                         </div>
 
                         <div className="mt-auto pt-8 border-t border-brand-accent">
-                            <p className="text-2xl lg:text-3xl text-brand-primary font-medium leading-tight">
+                            <p className="text-xl sm:text-2xl lg:text-3xl text-brand-primary font-medium leading-tight">
                                 A engenharia não é delegada. <br />
                                 <span className="font-black">É liderada.</span>
                             </p>
