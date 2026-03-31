@@ -38,8 +38,8 @@ export default function ResourcesPage() {
                             </p>
 
                             {/* CTA Button */}
-                            <button className="px-10 py-4 border-2 border-white text-white text-sm font-black rounded-full hover:bg-brand-accent hover:border-brand-accent transition-all uppercase tracking-widest flex items-center gap-3 group">
-                                <span className="text-brand-accent group-hover:text-white transition-colors">BAIXAR MATERIAIS TÉCNICOS</span>
+                            <button className="px-10 py-4 border-2 border-orange-600 text-white text-sm font-black rounded-full hover:bg-brand-accent hover:border-brand-accent transition-all uppercase tracking-widest flex items-center gap-3 group">
+                                <span className="text-white-accent group-hover:text-white transition-colors">BAIXAR MATERIAIS TÉCNICOS</span>
                             </button>
                         </motion.div>
                     </div>
