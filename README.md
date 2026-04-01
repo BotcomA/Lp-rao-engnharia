@@ -8,6 +8,8 @@ npm install
 
 npm run build
 
-rsync -av --delete ~/Lp-rao-engnharia/dist/ /var/www/raoengenharia/
+rm -rf /var/www/raoengenharia/*
+
+cp -r ~/Lp-rao-engnharia/dist/* /var/www/raoengenharia/
 
 systemctl reload nginx
