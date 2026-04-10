@@ -16,7 +16,7 @@ export default function Footer() {
                     />
 
                     <img
-                        src="/rotary.png"
+                        src="/selo_rotary_prata.png"
                         alt="Selo Rotary"
                         className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[320px]"
                     />
